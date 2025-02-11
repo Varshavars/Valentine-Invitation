@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yes!</title>
+  
+  <style>
+    body {
+      background-color: pink;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    #ending {
+      font-size: 28px;
+      font-family: cursive;
+      font-weight: bold;
+      margin-bottom: 35px;
+    }
+    #letter {
+      width: 200px;
+      height: 150px;
+      cursor: pointer;
+      transition: transform 0.3s;
+      border-radius: 4px;
+      border: 3px solid white;
+    }
+    #letter:hover {
+      transform: scale(1.1);
+    }
+    #msg {
+      display: none;
+      background-color: rgb(252, 157, 162);
+      padding: 20px;
+      margin-top: 20px;
+      max-width: 400px;
+      font-size: 18px;
+    }
+    #open, #tap{
+      font-family: monospace;
+      font-weight: bold;
+      margin-top: 25px;
+    }
+    .stikers {
+      width: 230px;
+      height: auto;
+      margin-top: 50px;
+      cursor: pointer;
+    }
+    .heart {
+      position: absolute;
+      color: red;
+      font-size: 24px;
+      animation: float 3s linear infinite;
+    }
+    @keyframes float {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100vh) scale(2);
+        opacity: 0;
+      }
+    }
+    .photo {
+      width: 230px;
+      height: 390px;
+      position: absolute;
+      top: 58%;
+      transform: translateY(-50%);
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+    #photo1 {
+      left: 10%;
+    }
+    #photo2 {
+      right: 10%;
+    }
+  </style>
+</head>
+<body>
+
+  <p id="ending">I knew you would say 'Yes' my Love! ❤️</p>
+  <img id="letter" src="Stickers/letter.png" alt="letter">
+  <p id="open">Open it babes...</p>
+  <p id="msg">My Dearest X,
+    
+    From the moment our paths crossed, my world has never been the same. I never believed in love, but then I met you—your laughter became my favorite melody, your words my sweetest poetry, and your presence my greatest comfort.
+    
+    With every stolen glance, every shared moment, and every late-night conversation, I found myself falling deeper into something I never expected—something real, something magical.
+    
+    So here I am, pouring my heart into these words, asking you one simple question—will you be my Valentine and make my heart yours forever? ❤️
+    
+    -Y</p>
+    
+  <img class="stikers" id="gif" src="Stickers/Yes.gif" alt="Happy sticker">
+  <p id="tap">Tap on the sticker</p>
+  
+  <img id="photo1" class="photo" src="https://imgs.search.brave.com/WI_CAmfL2Am9CXUh8ifWr9IlmrfCC1jg_Pqd8jBQeZ8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMuc3F1YXJlc3Bh/Y2UtY2RuLmNvbS9j/b250ZW50L3YxLzYz/MDUyNjE5YjBmODEx/MjI3NTE1MzNlOS8x/NjY4MTA1NDk3NTIw/LU1GMFJESjdWWVBR/NDJTNE5MUkoxL2Nv/dXBsZXMtcGhvdG9n/cmFwaHktYWZwLTE2/LmpwZw" alt="Photo 1">
+  <img id="photo2" class="photo" src="https://imgs.search.brave.com/SYT_FqHARb0fGG4tx8apdtnyvP1Mm4TLsoFZHoD95XY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzU3LzQ0/LzNhLzU3NDQzYWJl/NTQ3NDNlZmEwMTdi/YjY1MDY4OGMxNDMz/LmpwZw" alt="Photo 2">
+  
+  <!-- Audio -->
+  <audio id="bg-music" loop>
+    <source src="Stickers/tera.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- JavaScript -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      let audio = document.getElementById("bg-music");
+
+      // Play audio at 50% volume on page load
+      audio.volume = 0.1;
+      audio.play().catch(error => console.log("Autoplay blocked"));
+
+      // Heart animation
+      function createHeart() {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.innerHTML = "❤️";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = Math.random() * 3 + 2 + "s"; 
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 5000);
+      }
+
+      document.getElementById("letter").addEventListener("click", function() {
+        document.getElementById("msg").style.display = "block";
+        this.style.display = "none";
+        document.getElementById("open").style.display = "none";
+        
+        // Generate multiple hearts
+        for (let i = 0; i < 20; i++) {
+          setTimeout(createHeart, i * 200);
+        }
+      });
+      
+      document.getElementById("gif").addEventListener("click", function() {
+        document.getElementById("tap").style.display = "none";
+        document.getElementById("photo1").style.opacity = "1";
+        document.getElementById("photo2").style.opacity = "1";
+      });
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Valentine's Invite</title>
+  <style>
+    body {
+      background-color: pink;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+    }
+    #question {
+      font-size: 28px;
+      font-family:cursive;
+      font-weight: bold;
+      margin-bottom: 40px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 20px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      margin: 10px;
+    }
+    #y1 {
+      height: 90px;
+      width: 140px;
+      font-size: 40px;
+      padding: auto;
+      background-color: green;
+      color: white;
+    }
+    #n1 {
+
+      background-color: red;
+      color: white;
+    }
+    .stikers {
+      width: 150px;
+      height: 160px;
+      margin-top: 38px;
+    
+  
+    }
+    #No {
+      width: auto;
+      height: 140px;
+      margin-left: 80px;
+    }
+    .stiker-container {
+      display: flex;
+      justify-content: center;
+      gap: 500px;
+    }
+    #q{
+      font-size: 18px;
+      font-family:monospace;
+      font-weight: bold;
+    }
+    
+  </style>
+</head>
+<body>
+  <p id="question">Will you be my Valentine💖?</p>
+  <div class="button-container">
+    <a href="yes.html"> <button id="y1">Yes</button> </a>
+    <a href="n3.html"><button id="n1">No</button></a>
+    
+  </div>
+  <p id="q">Are you sure? 😏</p>
+  <div>
+    <img id="pic1" class="stikers" src="stickers/s2.gif" alt="Happy sticker">
+    <img id="No" class="stikers" src="stickers/sNo.gif" alt="Sad sticker">
+  </div>
+</body>
+</html>
